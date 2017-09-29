@@ -1,0 +1,24 @@
+{
+  "name": "storybooks-nodejs",
+  "version": "1.0.0",
+  "description": "StoryBooks NodeJS from NodeJS Course",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nartc/storybooks-nodejs.git"
+  },
+  "author": "Chau Tran",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nartc/storybooks-nodejs/issues"
+  },
+  "homepage": "https://github.com/nartc/storybooks-nodejs#readme",
+  "dependencies": {
+    "express": "^4.16.0",
+    "mongoose": "^4.11.13"
+  }
+}
