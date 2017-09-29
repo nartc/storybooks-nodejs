@@ -21,4 +21,23 @@ router.get(
     }
 );
 
+router.get(
+    '/verify',
+    (req, res) => {
+        if(req.user) {
+            console.log('Logged In User', req.user);
+        } else {
+            console.log(`Not Authenticated`);
+        }
+    }
+);
+
+router.get(
+    '/logout',
+    (req, res) => {
+        req.logout();
+        res.redirect('/');
+    }
+);
+
 module.exports = router;
