@@ -1,4 +1,5 @@
 const express = require("express");
+const exphbs = require('express-handlebars');
 const mongoose = require("mongoose");
 const passport = require('passport');
 const expSession = require('express-session');
@@ -27,6 +28,12 @@ mongoose.connect(keys.mongoURI, {
 
 //Express Variable
 const app = express();
+
+//Handlebars Middleware
+app.engine('handlebars', exphbs({
+    defaultLayout: 'main',
+}));
+app.set('view engine', 'handlebars');
 
 //Load Models
 require('./models/User');
