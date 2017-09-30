@@ -1,4 +1,5 @@
 <h1>Welcome</h1>
 <p>Story Books by NodeJS 1.0.0</p>
 <p>Post stories from your life and choose for them to be viewed by the world or completely private as your own personal diary.</p>
-<a href="/auth/google" class="btn red darken-2"><i class="fa fa-google left"></i> Login with Google</a>
+{{#if user}} {{else}}
+<a href="/auth/google" class="btn red darken-2"><i class="fa fa-google left"></i> Login with Google</a> . {{/if}}

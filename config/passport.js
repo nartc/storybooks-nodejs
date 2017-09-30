@@ -17,7 +17,7 @@ module.exports = (passport) => {
             // console.log('Profile', profileInfo);
 
             const fullImage = profileInfo.photos[0].value.substring(0, profileInfo.photos[0].value.indexOf('?'));
-            
+
             const newUser = {
                 googleID: profileInfo.id,
                 email: profileInfo.emails[0].value,
@@ -28,11 +28,11 @@ module.exports = (passport) => {
 
             //Check for existing User (using googleID)
             User.findOne(
-                {googleID: profileInfo.id}
+                { googleID: profileInfo.id }
             )
-            .then(
+                .then(
                 (user) => {
-                    if(user) {
+                    if (user) {
                         //Return existing User
                         console.log('FOUND EXISTING USER');
                         done(null, user);
@@ -44,12 +44,12 @@ module.exports = (passport) => {
                             .catch(err => console.log(`ERROR ON CREATING NEW USER: ${err}`));
                     }
                 }
-            )
-            .catch(
+                )
+                .catch(
                 (err) => {
                     console.log(`ERROR ON FINDING EXISTING USER: ${err}`);
                 }
-            )
+                )
         })
     );
 

@@ -13,18 +13,18 @@ mongoose.Promise = global.Promise;
 mongoose.connect(keys.mongoURI, {
     useMongoClient: true
 })
-.then(
+    .then(
     () => {
         setTimeout(() => {
             console.log(`Connected to database`);
         }, 1200)
     }
-)
-.catch(
+    )
+    .catch(
     (err) => {
         console.log(`ERROR ON DB CONNECTION: ${err}`);
     }
-);
+    );
 
 //Express Variable
 const app = express();

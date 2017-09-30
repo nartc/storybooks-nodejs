@@ -3,18 +3,18 @@ const router = express.Router();
 const passport = require('passport');
 
 router.get(
-    '/google', 
+    '/google',
     passport.authenticate(
-        'google', 
-        {scope: ['profile', 'email']}
-    ) 
+        'google',
+        { scope: ['profile', 'email'] }
+    )
 );
 
 router.get(
     '/google/callback',
     passport.authenticate(
         'google',
-        {failureRedirect: '/'}
+        { failureRedirect: '/' }
     ),
     (req, res) => {
         res.redirect('/dashboard');
@@ -24,7 +24,7 @@ router.get(
 router.get(
     '/verify',
     (req, res) => {
-        if(req.user) {
+        if (req.user) {
             console.log('Logged In User', req.user);
         } else {
             console.log(`Not Authenticated`);
