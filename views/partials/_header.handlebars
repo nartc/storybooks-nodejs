@@ -1,20 +1,24 @@
 <nav class="grey darken-3">
     <div class="container">
         <div class="nav-wrapper">
-            <a href="/stories" class="brand-logo center">StoryBooksNodeJS</a>
+            <a href="/" class="brand-logo center">StoryBooksNodeJS</a>
             <a href="#" data-activates="main-menu" class="button-collapse show-on-large"><i class="fa fa-bars"></i></a>
             <!--RIGHT NAVS-->
             <ul class="right hide-on-small-only">
                 {{#if user}}
                 <li><a href="/dashboard">Welcome {{user.firstName}}</a></li>
-                <li><a href="auth/logout"><i class="fa fa-sign-out"></i> Logout</a></li>
+                <li><a href="/auth/logout"><i class="fa fa-sign-out"></i> Logout</a></li>
                 {{else}}
                 <li><a href="/stories"><i class="fa fa-book"></i> Public Stories</a></li>
                 {{/if}}
             </ul>
             <!--SIDE NAV -->
             <ul class="side-nav" id="main-menu">
-                {{#if user}} 
+                {{#if user}}
+                <li>
+                    <a href="/stories"><i class="fa fa-book"></i> Public Stories</a>
+                </li>
+                <li class="divider"></li>
                 <li>
                     <a href="/dashboard"><i class="fa fa-cog"></i> Dashboard</a>
                 </li>
@@ -23,7 +27,7 @@
                 </li>
                 <li class="divider"></li>
                 <li>
-                    <a href="auth/logout"><i class="fa fa-sign-out"></i> Logout</a>
+                    <a href="/auth/logout"><i class="fa fa-sign-out"></i> Logout</a>
                 </li>
                 {{else}}
                 <li>
@@ -34,7 +38,7 @@
                 </li>
                 <li class="divider"></li>
                 {{/if}}
-                
+
             </ul>
         </div>
     </div>

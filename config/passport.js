@@ -27,28 +27,28 @@ module.exports = (passport) => {
             }
 
             //Check for existing User (using googleID)
-            User.findOne(
-                { googleID: profileInfo.id }
-            )
+            User.findOne({
+                    googleID: profileInfo.id
+                })
                 .then(
-                (user) => {
-                    if (user) {
-                        //Return existing User
-                        console.log('FOUND EXISTING USER');
-                        done(null, user);
-                    } else {
-                        //Create new User
-                        new User(newUser)
-                            .save()
-                            .then(user => done(null, user))
-                            .catch(err => console.log(`ERROR ON CREATING NEW USER: ${err}`));
+                    (user) => {
+                        if (user) {
+                            //Return existing User
+                            console.log('FOUND EXISTING USER');
+                            done(null, user);
+                        } else {
+                            //Create new User
+                            new User(newUser)
+                                .save()
+                                .then(user => done(null, user))
+                                .catch(err => console.log(`ERROR ON CREATING NEW USER: ${err}`));
+                        }
                     }
-                }
                 )
                 .catch(
-                (err) => {
-                    console.log(`ERROR ON FINDING EXISTING USER: ${err}`);
-                }
+                    (err) => {
+                        console.log(`ERROR ON FINDING EXISTING USER: ${err}`);
+                    }
                 )
         })
     );
